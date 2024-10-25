@@ -6,18 +6,17 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('background.jpg');
+    background-image: url('images/background.jpg');
     background-size: cover;
     margin: 0;
 }
 
 .quiz_box {
     position: relative;
-    width: 800px;
-    background-color: #fdde98;
-    margin-top: 40px;
-    padding: 20px;
-    border-radius: 10px;
+    width: 350px;
+    margin-top: 20px;
+    padding: 60px;
+    border-radius: 20px;
 }
 
 .question_number, .question {
@@ -29,20 +28,33 @@ body {
 
 .answer_box {
     display: flex;
-    flex-wrap: nowrap; /* 横並びにする */
-    justify-content: space-between; /* 選択肢の間にスペースを追加 */
+    justify-content: space-between; /* 要素の間にスペースを追加 */
     margin: 0 auto;
     margin-top: 10px;
     margin-bottom: 10px;
-    padding-bottom: 40px;
-    width: 100%; /* コンテナの幅を全体に合わせる */
+    width: 100%;
+}
+
+.answer {
+    flex: 0 1 calc(50% - 10px); /* 各ボタンを50%の幅で配置 */
+    margin-bottom: 10px; /* 下部のマージン */
+    box-sizing: border-box; /* パディングやボーダーを含める */
+	flex-wrap: wrap; /* 折り返しを有効に */
+	padding: 10px;
+	border: 1px solid #ccc;
+	flex: 1; 
+}
+
+button {
+    width: 100%; /* ボタンを親要素の幅に合わせる */
+    padding: 10px; /* ボタンの内側の余白 */
 }
 
 .answer {
     border: solid 1px #000;
-    width: 20%; /* 選択肢の幅を調整（変更可能） */
-    margin: 0 10px;
-    padding: 10px;
+    width: 70%; /* 選択肢の幅を調整（変更可能） */
+    margin: 5% 80px;
+    padding: 30px;
     cursor: pointer;
     background-color: #fff;
     text-align: center; /* テキストを中央に配置 */
@@ -55,8 +67,8 @@ body {
 
 .answer_correct, .answer_incorrect {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 8px;
+    left: 10px;
     display: flex;
     justify-content: center;
     align-items: center;

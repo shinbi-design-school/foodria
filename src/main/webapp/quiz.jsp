@@ -24,25 +24,26 @@
         </div>
     </c:if>
 
-    <div class="answer_box">
-        <c:if test="${!showNextButton}">
-            <form action="quiz" method="post">
-                <c:forEach var="choice" items="${choices}">
-                    <div class="answer">
-                        <button type="submit" name="answer" value="${choice}">${choice}</button>
-                    </div>
-                </c:forEach>
-                <input type="hidden" name="correctAnswer" value="${correctAnswer}">
-            </form>
-        </c:if>
+<div class="answer_box">
+    <c:if test="${!showNextButton}">
+        <form action="quiz" method="post">
+            <c:forEach var="choice" items="${choices}">
+                <div class="answer">
+                    <button type="submit" name="answer" value="${choice}">${choice}</button>
+                </div>
+            </c:forEach>
+            <input type="hidden" name="correctAnswer" value="${correctAnswer}">
+        </form>
+    </c:if>
 
-        <!-- 次の問題へ進むボタン -->
-        <c:if test="${showNextButton}">
-            <form action="quiz" method="get">
-                <button id="next-btn" type="submit" name="nextQuestion">次の問題へ進む</button>
-            </form>
-        </c:if>
-    </div>
+    <!-- 次の問題へ進むボタン -->
+    <c:if test="${showNextButton}">
+        <form action="quiz" method="get">
+            <button id="next-btn" type="submit" name="nextQuestion">次の問題へ進む</button>
+        </form>
+    </c:if>
+</div>
+
 
     <img src="images/animal.gif" alt="犬">
     <img id="food" src="images/food.gif" alt="食べ物">
