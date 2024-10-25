@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -61,6 +62,20 @@ public class QuizServlet extends HttpServlet {
             request.setAttribute("score", score);
             RequestDispatcher dispatcher = request.getRequestDispatcher("result.jsp");
             dispatcher.forward(request, response);
+        }
+    }
+    
+    private void loadQuestions1() {
+        try (BufferedReader br = new BufferedReader(new FileReader(getServletContext().getRealPath("/WEB-INF/quiz_questions.csv")))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] questionData = line.split(",");
+                questions.add(questionData);
+            }
+            // 質問をシャッフル
+            Collections.shuffle(questions);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
