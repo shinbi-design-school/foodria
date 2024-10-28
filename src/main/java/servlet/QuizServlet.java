@@ -30,6 +30,10 @@ public class QuizServlet extends HttpServlet {
             while ((line = br.readLine()) != null) {
                 String[] questionData = line.split(",");
                 questions.add(questionData);
+             // クイズの問題をシャッフル
+                Collections.shuffle(questions);
+                // シャッフル後の問題リストを確認するためのデバッグメッセージ
+                System.out.println("Shuffled questions:");
             }
         } catch (IOException e) {
             e.printStackTrace();
