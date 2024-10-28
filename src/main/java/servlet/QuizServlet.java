@@ -46,8 +46,7 @@ public class QuizServlet extends HttpServlet {
             // スコアをリセット
             score = 0;
             currentQuestionIndex = 0;
-            // 質問をシャッフル
-            Collections.shuffle(questions);
+    
         } else if (request.getParameter("nextQuestion") != null) {
             currentQuestionIndex++;
         }
