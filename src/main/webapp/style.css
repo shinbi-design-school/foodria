@@ -1,38 +1,44 @@
 @charset "UTF-8";
 
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url('images/background.jpg');
-    background-size: cover;
-    margin: 0;
+/* ページ全体の設定 */
+body { 
+    font-family: Arial, sans-serif; /* Arialフォントを指定 */
+    display: flex; /* コンテンツを中央に配置するためにフレックスボックスを使用 */
+    justify-content: center; /* 水平方向に中央配置 */
+    align-items: center; /* 垂直方向に中央配置 */
+    min-height: 100vh; /* ページの高さをブラウザの高さと同じにする */
+    background-image: url('images/background.jpg'); /* 背景画像を設定 */
+    background-size: cover; /* 画像が全体をカバーするように調整 */
+    margin: 0; /* ページ全体の余白をゼロにする */
 }
 
+/* クイズボックスのデザイン */
 .quiz_box {
-    position: relative;
-    width: 350px;
-    margin-top: 20px;
-    padding: 60px;
-    border-radius: 20px;
+    background-color: #fff; /* 背景色を白に設定 */
+    border: 1px solid #ccc; /* グレーのボーダーを追加 */
+    border-radius: 8px; /* 角を丸める */
+    padding: 20px; /* 内側の余白を20pxに設定 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* ボックスの影を追加して立体感を出す */
+    max-width: 600px; /* 最大幅を600pxに制限 */
+    width: 100%; /* 幅を100%に設定 */
+    display: flex; /* フレックスボックスで内部コンテンツを管理 */
+    flex-direction: column; /* コンテンツを縦に並べる */
+    align-items: center; /* コンテンツを中央揃え */
 }
 
-.question_number, .question {
-    text-align: center;
-    padding: 10px;
-    font-weight: bold;
-    font-size: 1.5em;
+/* クイズの質問部分 **/
+.question {
+    margin-bottom: 20px; /* 下に20pxの余白 */
+    font-size: 24px; /* 文字サイズを24pxに設定 */
+    color: #333; /* 濃いグレーの文字色 */
+    text-align: center; /* テキストを中央揃え */
 }
 
+
+/* 選択肢ボックスの設定 */
 .answer_box {
-    display: flex;
-    justify-content: space-between; /* 要素の間にスペースを追加 */
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 100%;
+    margin-top: 20px; /* 上に20pxの余白 */
+    width: 100%; /* 幅を100%に設定 */
 }
 
 .answer {
@@ -45,9 +51,17 @@ body {
 	flex: 1; 
 }
 
+/* ボタンのスタイル */
 button {
-    width: 100%; /* ボタンを親要素の幅に合わせる */
-    padding: 10px; /* ボタンの内側の余白 */
+    width: 100%; /* ボタン幅を親要素に合わせる */
+    padding: 10px; /* 内側の余白を10pxに設定 */
+    font-size: 18px; /* 文字サイズを18pxに設定 */
+    color: #fff; /* 文字色を白に設定 */
+    background-color: #007bff; /* ボタンの背景色を青に設定 */
+    border: none; /* ボーダーを削除 */
+    border-radius: 5px; /* 角を丸める */
+    cursor: pointer; /* カーソルをポインターに変更 */
+    transition: background-color 0.3s; /* 背景色の変更にアニメーションを追加 */
 }
 
 .answer {
@@ -60,72 +74,46 @@ button {
     text-align: center; /* テキストを中央に配置 */
     transition: background-color 0.3s;
 }
-
-.answer:hover {
-    background-color: #e1e1e1;
+/* 選択肢をグリッドで配置 */
+.choices-grid {
+    max-width: 400px; /* 最大幅を400pxに設定 */
+    display: grid; /* グリッドレイアウトを使用 */
+    grid-template-columns: repeat(2, 1fr); /* 2列で表示 */
+    gap: 10px; /* 各グリッドの間に10pxの間隔を設定 */
+    margin: 0 auto; /* グリッドを中央揃え */
+}
+/* ボタンのホバー効果 */
+button:hover {
+    background-color: #0056b3; /* ホバー時にボタンの背景色を濃い青に変更 */
 }
 
-.answer_correct, .answer_incorrect {
-    position: absolute;
-    top: 8px;
-    left: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(225, 225, 225, 0.9);
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.5s;
-}
-
-.answer_correct .maru {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: solid 10px red;
-}
-
-.answer_incorrect .batu {
-    position: relative;
-    width: 100px;
-    height: 10px;
-    background-color: blue;
-    transform: rotate(-45deg);
-}
-
-.answer_incorrect .batu::before {
-    position: absolute;
-    content: "";
-    width: 100px;
-    height: 10px;
-    background-color: blue;
-    transform: rotate(90deg);
-}
-
-.active_answer {
-    visibility: visible;
-    opacity: 0.8;
-}
-
-.active_result {
-    visibility: visible;
-    opacity: 1;
-}
-
+/* 次のボタンの位置調整 */
 #next-btn {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    margin-top: 20px; /* 上に20pxの余白 */
 }
 
-#next-btn:hover {
-    background-color: #45a049;
+/* 画像を配置するコンテナ */
+.image_container {
+    margin-top: 20px; /* 上に20pxの余白 */
+    text-align: center; /* 画像を中央揃え */
+    width: 100%; /* 幅を100%に設定 */
 }
+
+/* コンテナ内の画像スタイル */
+.image_container img {
+    max-width: 100%; /* 画像の幅を親要素に合わせる */
+    height: auto; /* 高さを自動調整 */
+    margin: 10px; /* 各画像に10pxの余白 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
