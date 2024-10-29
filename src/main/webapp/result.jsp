@@ -45,7 +45,9 @@
             'images/sweetp1.gif', //さつまいも
             'images/potato1.gif', //じゃがいも
             'images/pumpkin2.gif', //かぼちゃ
-            'images/grape2.gif' //ぶどう
+            'images/grape2.gif', //ぶどう
+            'images/radish9.gif', //大根
+            'images/eggplant2.gif' //ナス
             
         ];
 
