@@ -34,21 +34,19 @@ body {
     text-align: center; /* テキストを中央揃え */
 }
 
-
 /* 選択肢ボックスの設定 */
 .answer_box {
     margin-top: 20px; /* 上に20pxの余白 */
     width: 100%; /* 幅を100%に設定 */
 }
 
-.answer {
-    flex: 0 1 calc(50% - 10px); /* 各ボタンを50%の幅で配置 */
-    margin-bottom: 10px; /* 下部のマージン */
-    box-sizing: border-box; /* パディングやボーダーを含める */
-	flex-wrap: wrap; /* 折り返しを有効に */
-	padding: 10px;
-	border: 1px solid #ccc;
-	flex: 1; 
+/* 選択肢をグリッドで配置 */
+.choices-grid {
+    max-width: 400px; /* 最大幅を400pxに設定 */
+    display: grid; /* グリッドレイアウトを使用 */
+    grid-template-columns: repeat(2, 1fr); /* 2列で表示 */
+    gap: 10px; /* 各グリッドの間に10pxの間隔を設定 */
+    margin: 0 auto; /* グリッドを中央揃え */
 }
 
 /* ボタンのスタイル */
@@ -64,24 +62,6 @@ button {
     transition: background-color 0.3s; /* 背景色の変更にアニメーションを追加 */
 }
 
-.answer {
-    border: solid 1px #000;
-    width: 70%; /* 選択肢の幅を調整（変更可能） */
-    margin: 5% 80px;
-    padding: 30px;
-    cursor: pointer;
-    background-color: #fff;
-    text-align: center; /* テキストを中央に配置 */
-    transition: background-color 0.3s;
-}
-/* 選択肢をグリッドで配置 */
-.choices-grid {
-    max-width: 400px; /* 最大幅を400pxに設定 */
-    display: grid; /* グリッドレイアウトを使用 */
-    grid-template-columns: repeat(2, 1fr); /* 2列で表示 */
-    gap: 10px; /* 各グリッドの間に10pxの間隔を設定 */
-    margin: 0 auto; /* グリッドを中央揃え */
-}
 /* ボタンのホバー効果 */
 button:hover {
     background-color: #0056b3; /* ホバー時にボタンの背景色を濃い青に変更 */
@@ -105,8 +85,6 @@ button:hover {
     height: auto; /* 高さを自動調整 */
     margin: 10px; /* 各画像に10pxの余白 */
 }
-
-
 
 
 
