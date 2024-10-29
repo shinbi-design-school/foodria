@@ -50,8 +50,8 @@
 </div>
 
 
-    <audio id="correctSound" src="correct.mp3"></audio>
-    <audio id="incorrectSound" src="incorrect.mp3"></audio>
+    <audio id="correctSound" src="audio/correct.mp3"></audio>
+    <audio id="incorrectSound" src="audio/incorrect.mp3"></audio>
 
     <c:if test="${not empty sound}">
         <script>
