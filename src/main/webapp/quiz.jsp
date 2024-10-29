@@ -58,6 +58,9 @@
 <!-- 効果音の再生 -->
 <audio id="correctSound" src="audio/correct.mp3"></audio>
 <audio id="incorrectSound" src="audio/incorrect.mp3"></audio>
+
+
+
 <c:if test="${not empty sound}">
     <script>
         // JavaScriptでの効果音再生制御

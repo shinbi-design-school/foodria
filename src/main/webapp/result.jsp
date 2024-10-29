@@ -8,7 +8,7 @@
     <title>結果</title>
     <style>
         body {
-            background-image: url('images/background.jpg'); /* 背景画像のパス */
+            background-image: url('images/foodria.png'); /* 背景画像のパス */
             background-size: cover; /* 画像を全体に表示 */
             background-position: center; /* 画像を中央に配置 */
             background-repeat: no-repeat; /* 画像を繰り返さない */
@@ -32,6 +32,7 @@
         <img src="images/animal.gif" alt="犬">
         <img id="food" src="images/food.gif" alt="食べ物">
     </form>
+    
 
     <script>
         const score = ${score}; // サーバーからスコアを取得

@@ -7,7 +7,7 @@ body {
     justify-content: center; /* 水平方向に中央配置 */
     align-items: center; /* 垂直方向に中央配置 */
     min-height: 100vh; /* ページの高さをブラウザの高さと同じにする */
-    background-image: url('images/background.jpg'); /* 背景画像を設定 */
+    background-image: url('images/foodria.png'); /* 背景画像を設定 */
     background-size: cover; /* 画像が全体をカバーするように調整 */
     margin: 0; /* ページ全体の余白をゼロにする */
 }
