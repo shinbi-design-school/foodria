@@ -13,20 +13,20 @@
             background-position: center; /* 画像を中央に配置 */
             background-repeat: no-repeat; /* 画像を繰り返さない */
         }
-        #tomato-container {
+        #vegetable-container {
             display: flex;
-            flex-wrap: wrap; /* 複数のトマト画像を並べる */
+            flex-wrap: wrap; /* 複数の野菜画像を並べる */
         }
-        .tomato {
-            width: 50px; /* トマト画像のサイズ */
-            height: 50px; /* トマト画像のサイズ */
-            margin: 5px; /* トマト画像の間隔 */
+        .vegetable {
+            width: 50px; /* 野菜画像のサイズ */
+            height: 50px; /* 野菜画像のサイズ */
+            margin: 5px; /* 野菜画像の間隔 */
         }
     </style>
 </head>
 <body>
     <h1>あなたのスコア: ${score}</h1>
-    <div id="tomato-container"></div>
+    <div id="vegetable-container"></div>
     <form action="quiz" method="get">
         <button type="submit" name="start" value="true">もう一度プレイする</button>
         <img src="images/animal.gif" alt="犬">
@@ -35,15 +35,30 @@
 
     <script>
         const score = ${score}; // サーバーからスコアを取得
-        const tomatoContainer = document.getElementById('tomato-container');
+        const vegetableContainer = document.getElementById('vegetable-container');
+
+        const vegetableImages = [
+            'images/food.gif', // トマト
+            'images/jamp-suika50.gif', // スイカ
+            'images/carrot1.gif' ,// ニンジン
+            'images/chestnut1.gif', //クリ
+            'images/sweetp1.gif', //さつまいも
+            'images/potato1.gif', //じゃがいも
+            'images/pumpkin2.gif', //かぼちゃ
+            'images/grape2.gif' //ぶどう
+            
+        ];
 
         for (let i = 0; i < score; i++) {
-            const tomatoImg = document.createElement('img');
-            tomatoImg.src = 'images/food.gif'; // トマト画像のパス
-            tomatoImg.alt = 'トマト';
-            tomatoImg.className = 'tomato';
-            tomatoContainer.appendChild(tomatoImg);
+            const vegetableImg = document.createElement('img');
+            const randomIndex = Math.floor(Math.random() * vegetableImages.length);
+            vegetableImg.src = vegetableImages[randomIndex]; // ランダムに野菜画像を選択
+            vegetableImg.alt = '野菜';
+            vegetableImg.className = 'vegetable';
+            vegetableContainer.appendChild(vegetableImg);
         }
+        
     </script>
 </body>
 </html>
+
