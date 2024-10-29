@@ -39,7 +39,7 @@
 
         const vegetableImages = [
             'images/food.gif', // トマト
-            'images/jamp-suika50.gif', // スイカ
+            'images/watermelon1.gif', // スイカ
             'images/carrot1.gif' ,// ニンジン
             'images/chestnut1.gif', //クリ
             'images/sweetp1.gif', //さつまいも
