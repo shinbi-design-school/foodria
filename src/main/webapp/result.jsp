@@ -8,31 +8,37 @@
     <title>結果</title>
     <style>
         body {
-            background-image: url('images/foodria.png'); /* 背景画像のパス */
-            background-size: cover; /* 画像を全体に表示 */
-            background-position: center; /* 画像を中央に配置 */
-            background-repeat: no-repeat; /* 画像を繰り返さない */
+            background-image: url('images/foodria.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
-            align-items: center; /* 中央揃え */
-            justify-content: center; /* 中央揃え */
-            height: 100vh; /* ビューポートの高さに合わせる */
-            margin: 0; /* マージンをリセット */
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
         }
         #vegetable-container {
             display: flex;
-            flex-wrap: wrap; /* 複数の野菜画像を並べる */
-            justify-content: center; /* 中央揃え */
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .vegetable {
-            width: 50px; /* 野菜画像のサイズ */
-            height: 50px; /* 野菜画像のサイズ */
-            margin: 5px; /* 野菜画像の間隔 */
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+        }
+        .score-low {
+            color: red; /* スコアが5以下のときの色 */
+        }
+        .score-high {
+            color: blue; /* スコアが5以上のときの色 */
         }
     </style>
 </head>
 <body>
-    <h1>あなたのスコア: ${score}問/10問</h1>
+    <h1>あなたのスコア: <span id="score-value">${score}</span>問/10問</h1>
     <div id="vegetable-container"></div>
     <form action="quiz" method="get" style="text-align: center;">
         <button type="submit" name="start" value="true">もう一度プレイする</button>
@@ -44,12 +50,20 @@
     <audio id="bgm" src="Kokage_De_Yuttari-1(Slow).mp3" loop autoplay></audio>
     <script>
       const bgm = document.getElementById('bgm');
-      bgm.volume = 0.2; // 音量は0.0（無音）から1.0（最大音量）まで
+      bgm.volume = 0.2;
     </script>
 
     <script>
         const score = ${score}; // サーバーからスコアを取得
         const vegetableContainer = document.getElementById('vegetable-container');
+        const scoreValue = document.getElementById('score-value');
+
+        // スコアに応じて文字色を変更
+        if (score <= 5) {
+            scoreValue.classList.add('score-low');
+        } else {
+            scoreValue.classList.add('score-high');
+        }
 
         const vegetableImages = [
             'images/food.gif', // トマト
