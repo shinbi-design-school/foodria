@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 @WebServlet("/quiz")
 public class QuizServlet extends HttpServlet {
     private static final int MAX_QUESTIONS = 10; // クイズの最大問題数
