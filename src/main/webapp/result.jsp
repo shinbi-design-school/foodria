@@ -1,66 +1,51 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>結果</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
-            background-image: url('images/background.jpg'); /* 背景画像のパス */
-            background-size: cover; /* 画像を全体に表示 */
-            background-position: center; /* 画像を中央に配置 */
-            background-repeat: no-repeat; /* 画像を繰り返さない */
+            background-image: url('images/foodria.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         #vegetable-container {
             display: flex;
-            flex-wrap: wrap; /* 複数の野菜画像を並べる */
+            flex-wrap: wrap;
         }
         .vegetable {
-            width: 50px; /* 野菜画像のサイズ */
-            height: 50px; /* 野菜画像のサイズ */
-            margin: 5px; /* 野菜画像の間隔 */
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+        }
+        /* 犬の画像と「が食べた野菜：」を横並びに */
+        h2 {
+            display: flex;
+            align-items: center; /* テキストと犬の画像を垂直中央揃え */
+            gap: 10px; /* 画像とテキストの間にスペースを追加 */
+        }
+        .dog-image {
+            width: 100px; /* 犬画像のサイズ調整 */
+            height: auto;
         }
     </style>
 </head>
 <body>
+<div class="quiz_box">
     <h1>あなたのスコア: ${score}</h1>
-    <div id="vegetable-container"></div>
+    <h2><img class="dog-image" src="images/mokomokoinu.png" alt="犬">が食べた野菜：</h2>
+    <div id="vegetable-container">
+        <c:forEach var="vegetableImage" items="${eatenVegetables}">
+            <img class="vegetable" src="${vegetableImage}" alt="野菜">
+        </c:forEach>
+    </div>
     <form action="quiz" method="get">
         <button type="submit" name="start" value="true">もう一度プレイする</button>
-        <img src="images/animal.gif" alt="犬">
-        <img id="food" src="images/food.gif" alt="食べ物">
     </form>
-
-    <script>
-        const score = ${score}; // サーバーからスコアを取得
-        const vegetableContainer = document.getElementById('vegetable-container');
-
-        const vegetableImages = [
-            'images/food.gif', // トマト
-            'images/watermelon1.gif', // スイカ
-            'images/carrot1.gif' ,// ニンジン
-            'images/chestnut1.gif', //クリ
-            'images/sweetp1.gif', //さつまいも
-            'images/potato1.gif', //じゃがいも
-            'images/pumpkin2.gif', //かぼちゃ
-            'images/grape2.gif', //ぶどう
-            'images/radish9.gif', //大根
-            'images/eggplant2.gif' //ナス
-            
-        ];
-
-        for (let i = 0; i < score; i++) {
-            const vegetableImg = document.createElement('img');
-            const randomIndex = Math.floor(Math.random() * vegetableImages.length);
-            vegetableImg.src = vegetableImages[randomIndex]; // ランダムに野菜画像を選択
-            vegetableImg.alt = '野菜';
-            vegetableImg.className = 'vegetable';
-            vegetableContainer.appendChild(vegetableImg);
-        }
-        
-    </script>
+</div>
 </body>
 </html>
-
