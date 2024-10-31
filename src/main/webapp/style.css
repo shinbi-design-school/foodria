@@ -20,6 +20,7 @@ body {
 	/* ページ全体の余白をゼロにする */
 }
 
+
 /* クイズボックスのデザイン */
 .quiz_box {
 	background-color: #fff;
@@ -46,6 +47,7 @@ body {
 	/* コンテンツを中央揃え */
 }
 
+
 /* クイズの質問部分 **/
 .question {
 	margin-top: 20px;
@@ -60,6 +62,7 @@ body {
 	/* テキストを中央揃え */
 }
 
+
 /* 選択肢ボックスの設定 */
 .answer_box {
 	margin-top: 20px;
@@ -67,6 +70,7 @@ body {
 	width: 100%;
 	/* 幅を100%に設定 */
 }
+
 
 /* 選択肢をグリッドで配置 */
 .choices-grid {
@@ -81,6 +85,7 @@ body {
 	margin: 0 auto;
 	/* グリッドを中央揃え */
 }
+
 
 /* ボタンのスタイル */
 button {
@@ -104,17 +109,20 @@ button {
 	/* 背景色の変更にアニメーションを追加 */
 }
 
+
 /* ボタンのホバー効果 */
 button:hover {
 	background-color: #0056b3;
 	/* ホバー時にボタンの背景色を濃い青に変更 */
 }
 
+
 /* 次のボタンの位置調整 */
 #next-btn {
 	margin-top: 20px;
 	/* 上に20pxの余白 */
 }
+
 
 /* 画像を配置するコンテナ */
 .image_container {
@@ -125,6 +133,7 @@ button:hover {
 	margin-top: 20px;
 }
 
+
 #vegetable-container {
 	display: flex;
 	gap: 10px;
@@ -134,10 +143,12 @@ button:hover {
 	/* 犬と野菜の間隔 */
 }
 
+
 .vegetable {
 	width: 50px;
 	height: 50px;
 }
+
 
 /* コンテナ内の画像スタイル */
 .image_container img {
@@ -150,12 +161,15 @@ button:hover {
 }
 
 
+
+
 /* 犬アニメーション */
 #slider {
 	position: relative;
 	width: 100px;
 	height: 100px;
 }
+
 
 .slide {
 	position: absolute;
@@ -164,9 +178,11 @@ button:hover {
 	display: none;
 }
 
+
 .active {
 	display: block;
 }
+
 
 #food {
 	position: absolute;
@@ -176,14 +192,17 @@ button:hover {
 	transition: all 0.5s ease;
 }
 
+
 /* ホームボタンのスタイル */
 .home-button-container {
 	position: absolute;
 	margin-bottom: 20px;
 	top: 10px;
 	right: 10px; /* 右上に配置 */
-	
+
+
 }
+
 
 .home-button {
 	padding: 8px 16px;
@@ -195,6 +214,7 @@ button:hover {
 	    cursor: pointer;
 	    transition: background-color 0.3s;
 }
+
 
 .home-button:hover {
     background-color: rgb(0, 255, 64);
