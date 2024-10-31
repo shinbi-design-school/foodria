@@ -19,7 +19,6 @@ public class QuizServlet extends HttpServlet {
     private List<String[]> questions = new ArrayList<>();
     private int score = 0;
     private int currentQuestionIndex = 0;
-    private String previousCorrectAnswer = "";
 
     public void init() throws ServletException {
         loadQuestions();
@@ -49,6 +48,8 @@ public class QuizServlet extends HttpServlet {
             // スコアをリセット
             score = 0;
             currentQuestionIndex = 0;
+            // 新しいクイズを開始する際に問題を再読み込み
+            loadQuestions();
         } else if (request.getParameter("nextQuestion") != null) {
             currentQuestionIndex++;
         }
@@ -74,6 +75,7 @@ public class QuizServlet extends HttpServlet {
         if ("true".equals(request.getParameter("reset"))) {
             score = 0; // スコアをリセット
             currentQuestionIndex = 0; // 現在の質問インデックスをリセット
+            loadQuestions(); // 新しいクイズを開始する際に問題を再読み込み
         } else {
             // 通常の解答処理
             String selectedAnswer = request.getParameter("answer");
@@ -84,7 +86,6 @@ public class QuizServlet extends HttpServlet {
             } else {
                 request.setAttribute("sound", "incorrect");
             }
-            previousCorrectAnswer = correctAnswer;
             String explanation = questions.get(currentQuestionIndex)[6]; // 解説を取得
             request.setAttribute("selectedAnswer", selectedAnswer);
             request.setAttribute("correctAnswer", correctAnswer);
