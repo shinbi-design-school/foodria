@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>結果</title>
+     <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- ファビコンの追加 -->
     <style>
         body {
             background-image: url('images/foodria.png');

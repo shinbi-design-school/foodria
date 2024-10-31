@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>クイズ開始</title>
+     <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- ファビコンの追加 -->
     <link rel="stylesheet" href="style.css">
     <style>
         .orange-text {

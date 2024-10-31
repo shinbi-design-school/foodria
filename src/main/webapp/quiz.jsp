@@ -4,6 +4,7 @@
 <html>
 <head>
     <title>クイズ</title>
+     <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- ファビコンの追加 -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
