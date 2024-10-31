@@ -12,10 +12,17 @@
             background-size: cover; /* 画像を全体に表示 */
             background-position: center; /* 画像を中央に配置 */
             background-repeat: no-repeat; /* 画像を繰り返さない */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 中央揃え */
+            justify-content: center; /* 中央揃え */
+            height: 100vh; /* ビューポートの高さに合わせる */
+            margin: 0; /* マージンをリセット */
         }
         #vegetable-container {
             display: flex;
             flex-wrap: wrap; /* 複数の野菜画像を並べる */
+            justify-content: center; /* 中央揃え */
         }
         .vegetable {
             width: 50px; /* 野菜画像のサイズ */
@@ -27,12 +34,18 @@
 <body>
     <h1>あなたのスコア: ${score}</h1>
     <div id="vegetable-container"></div>
-    <form action="quiz" method="get">
+    <form action="quiz" method="get" style="text-align: center;">
         <button type="submit" name="start" value="true">もう一度プレイする</button>
-        <img src="images/animal.gif" alt="犬">
-        <img id="food" src="images/food.gif" alt="食べ物">
+        <div>
+            <img src="images/animal.gif" alt="犬">
+            <img id="food" src="images/food.gif" alt="食べ物">
+        </div>
     </form>
-    
+    <audio id="bgm" src="Kokage_De_Yuttari-1(Slow).mp3" loop autoplay></audio>
+    <script>
+      const bgm = document.getElementById('bgm');
+      bgm.volume = 0.2; // 音量は0.0（無音）から1.0（最大音量）まで
+    </script>
 
     <script>
         const score = ${score}; // サーバーからスコアを取得
@@ -41,15 +54,14 @@
         const vegetableImages = [
             'images/food.gif', // トマト
             'images/watermelon1.gif', // スイカ
-            'images/carrot1.gif' ,// ニンジン
-            'images/chestnut1.gif', //クリ
-            'images/sweetp1.gif', //さつまいも
-            'images/potato1.gif', //じゃがいも
-            'images/pumpkin2.gif', //かぼちゃ
-            'images/grape2.gif', //ぶどう
-            'images/radish9.gif', //大根
-            'images/eggplant2.gif' //ナス
-            
+            'images/carrot1.gif', // ニンジン
+            'images/chestnut1.gif', // クリ
+            'images/sweetp1.gif', // さつまいも
+            'images/potato1.gif', // じゃがいも
+            'images/pumpkin2.gif', // かぼちゃ
+            'images/grape2.gif', // ぶどう
+            'images/radish9.gif', // 大根
+            'images/eggplant2.gif' // ナス
         ];
 
         for (let i = 0; i < score; i++) {
@@ -60,7 +72,6 @@
             vegetableImg.className = 'vegetable';
             vegetableContainer.appendChild(vegetableImg);
         }
-        
     </script>
 </body>
 </html>
