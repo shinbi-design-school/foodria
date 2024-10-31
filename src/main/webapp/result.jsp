@@ -32,7 +32,7 @@
     </style>
 </head>
 <body>
-    <h1>あなたのスコア: ${score}</h1>
+    <h1>あなたのスコア: ${score}問/10問</h1>
     <div id="vegetable-container"></div>
     <form action="quiz" method="get" style="text-align: center;">
         <button type="submit" name="start" value="true">もう一度プレイする</button>
