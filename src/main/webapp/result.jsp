@@ -47,7 +47,7 @@
             <img id="food" src="images/food.gif" alt="食べ物">
         </div>
     </form>
-    <audio id="bgm" src="Kokage_De_Yuttari-1(Slow).mp3" loop autoplay></audio>
+    <audio id="bgm" src="audio/Kokage_De_Yuttari-1(Slow).mp3" loop autoplay></audio>
     <script>
       const bgm = document.getElementById('bgm');
       bgm.volume = 0.2;

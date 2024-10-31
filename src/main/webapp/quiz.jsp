@@ -59,7 +59,7 @@
 <audio id="correctSound" src="audio/correct.mp3"></audio>
 <audio id="incorrectSound" src="audio/incorrect.mp3"></audio>
 
-    <audio id="bgm" src="Kokage_De_Yuttari-1(Slow).mp3" loop autoplay></audio>
+    <audio id="bgm" src="audio/Kokage_De_Yuttari-1(Slow).mp3" loop autoplay></audio>
 <script>
   const bgm = document.getElementById('bgm');
   bgm.volume = 0.2; // 音量は0.0（無音）から1.0（最大音量）まで
