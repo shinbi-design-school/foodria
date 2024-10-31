@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -35,13 +34,25 @@
         .score-high {
             color: blue; /* スコアが5以上のときの色 */
         }
+        button {
+            background: transparent; /* 背景を透過に */
+            border: none; /* ボーダーを消す */
+            cursor: pointer; /* カーソルをポインタに */
+        }
+        button img {
+            width: 250px;
+            height: auto;
+            display: block; /* 画像をブロック要素に */
+        }
     </style>
 </head>
 <body>
     <h1>あなたのスコア: <span id="score-value">${score}</span>問/10問</h1>
     <div id="vegetable-container"></div>
     <form action="quiz" method="get" style="text-align: center;">
-        <button type="submit" name="start" value="true">もう一度プレイする</button>
+        <button type="submit" name="start" value="true">
+            <img src="images/boy.png" alt="もう一度始める"> <!-- 画像ボタン -->
+        </button>
         <div>
             <img src="images/animal.gif" alt="犬">
             <img id="food" src="images/food.gif" alt="食べ物">
@@ -49,8 +60,8 @@
     </form>
     <audio id="bgm" src="audio/Kokage_De_Yuttari-1(Slow).mp3" loop autoplay></audio>
     <script>
-      const bgm = document.getElementById('bgm');
-      bgm.volume = 0.2;
+        const bgm = document.getElementById('bgm');
+        bgm.volume = 0.2;
     </script>
 
     <script>
