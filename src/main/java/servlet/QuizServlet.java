@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet("/quiz")
 public class QuizServlet extends HttpServlet {
     private static final int MAX_QUESTIONS = 10; // クイズの最大問題数
@@ -24,30 +23,32 @@ public class QuizServlet extends HttpServlet {
     private int currentQuestionIndex = 0;
     private String previousCorrectAnswer = "";
 
-    // 野菜画像の配列
-    private static final String[] vegetableImages = {
-        "images/food.gif",       // トマト
-        "images/watermelon1.gif", // スイカ
-        "images/carrot1.gif",    // ニンジン
-        "images/chestnut1.gif",  // クリ
-        "images/sweetp1.gif",    // さつまいも
-        "images/potato1.gif",    // じゃがいも
-        "images/pumpkin2.gif",   // かぼちゃ
-        "images/grape2.gif",     // ぶどう
-        "images/radish9.gif",    // 大根
-        "images/eggplant2.gif"   // ナス
+    // 果物画像の配列
+    private static final String[] fruitImages = {
+        "images/apple.png",      // りんご
+        "images/banana.png",     // バナナ
+        "images/grape.png",      // ぶどう
+        "images/kiwi.png",       // キウイ
+        "images/mango.png",      // マンゴー
+        "images/orange.png",     // オレンジ
+        "images/peach.png",      // 桃
+        "images/pineapple.png",  // パイナップル
+        "images/strawberry.png", // いちご
+        "images/watermelon.png"  // すいか
     };
     
-    private String currentVegetableImage; // 表示するランダムな野菜画像
+    private String currentFruitImage; // 表示するランダムな果物画像
     
-    // 犬が食べた野菜のリスト
-    private List<String> eatenVegetables = new ArrayList<>();
+    // 犬が食べた果物のリスト
+    private List<String> eatenFruits = new ArrayList<>();
 
     public void init() throws ServletException {
         loadQuestions();
     }
 
+    // クイズの問題をCSVファイルから読み込み、シャッフル
     private void loadQuestions() {
+        questions.clear(); // クイズリストをクリアしてから読み込み
         try (BufferedReader br = new BufferedReader(new FileReader(getServletContext().getRealPath("/WEB-INF/quiz_questions.csv")))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -68,7 +69,8 @@ public class QuizServlet extends HttpServlet {
         if ("true".equals(startParam)) {
             score = 0; // スコアをリセット
             currentQuestionIndex = 0;
-            eatenVegetables.clear(); // 食べた野菜のリストをリセット
+            eatenFruits.clear(); // 食べた果物のリストをリセット
+            loadQuestions(); // ホームボタン押下時にもシャッフル
         } else if (request.getParameter("nextQuestion") != null) {
             currentQuestionIndex++;
         }
@@ -80,10 +82,10 @@ public class QuizServlet extends HttpServlet {
             request.setAttribute("correctAnswer", currentQuestion[5]);
             request.setAttribute("explanation", currentQuestion[6]);
             
-            // 野菜画像をランダムに選択して設定
-            int randomIndex = (int) (Math.random() * vegetableImages.length);
-            currentVegetableImage = vegetableImages[randomIndex];
-            request.setAttribute("vegetableImage", currentVegetableImage); // JSPに渡す
+            // 果物画像をランダムに選択して設定
+            int randomIndex = (int) (Math.random() * fruitImages.length);
+            currentFruitImage = fruitImages[randomIndex];
+            request.setAttribute("fruitImage", currentFruitImage); // JSPに渡す
             
             request.setAttribute("showNextButton", false);
             RequestDispatcher dispatcher = request.getRequestDispatcher("quiz.jsp");
@@ -91,17 +93,19 @@ public class QuizServlet extends HttpServlet {
         } else {
             request.setAttribute("score", score);
             request.setAttribute("maxQuestions", MAX_QUESTIONS); // 最大問題数をリクエストにセット
-            request.setAttribute("eatenVegetables", eatenVegetables); // 食べた野菜リストを結果ページに渡す
+            request.setAttribute("eatenFruits", eatenFruits); // 食べた果物リストを結果ページに渡す
             RequestDispatcher dispatcher = request.getRequestDispatcher("result.jsp");
             dispatcher.forward(request, response);
         }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if ("true".equals(request.getParameter("reset"))) {
+        String resetParam = request.getParameter("reset");
+        if ("true".equals(resetParam)) {
             score = 0; // スコアをリセット
             currentQuestionIndex = 0; // 現在の質問インデックスをリセット
-            eatenVegetables.clear(); // 食べた野菜のリストをリセット
+            eatenFruits.clear(); // 食べた果物のリストをリセット
+            loadQuestions(); // シャッフルして最初から
         } else {
             String selectedAnswer = request.getParameter("answer");
             String correctAnswer = request.getParameter("correctAnswer");
@@ -109,8 +113,8 @@ public class QuizServlet extends HttpServlet {
                 score++;
                 request.setAttribute("sound", "correct");
 
-                // 正解した場合、現在の野菜画像を食べた野菜リストに追加
-                eatenVegetables.add(currentVegetableImage);
+                // 正解した場合、現在の果物画像を食べた果物リストに追加
+                eatenFruits.add(currentFruitImage);
             } else {
                 request.setAttribute("sound", "incorrect");
             }
@@ -119,7 +123,7 @@ public class QuizServlet extends HttpServlet {
             request.setAttribute("selectedAnswer", selectedAnswer);
             request.setAttribute("correctAnswer", correctAnswer);
             request.setAttribute("explanation", explanation); // 解説をリクエストにセット
-            request.setAttribute("vegetableImage", currentVegetableImage); // 同じ野菜画像をセット
+            request.setAttribute("fruitImage", currentFruitImage); // 同じ果物画像をセット
             request.setAttribute("showNextButton", true); // 次の問題に進むボタンを表示
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher("quiz.jsp");
