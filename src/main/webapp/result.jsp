@@ -63,6 +63,8 @@
         <button type="submit" name="start" value="true">
             <img src="images/boy.png" alt="もう一度始める">
         </button>
+    </form>
+    
         
         	<!-- ホームボタンの追加 -->
 		<div class="home-button-container">
@@ -70,11 +72,8 @@
 				<!-- ホームページへ移動 -->
 				<button type="submit" class="home-button">ホーム</button>
 			</form>
-		</div>
-        
-    </form>
-    
-    
+			
+			
     <audio id="bgm" src="audio/Kokage_De_Yuttari-1(Slow).mp3" loop autoplay></audio>
     <script>
         const score = ${score}; // サーバーからスコアを取得
