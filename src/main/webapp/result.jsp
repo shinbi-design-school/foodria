@@ -22,21 +22,36 @@
             height: 50px;
             margin: 5px;
         }
-        /* 犬の画像と「が食べた野菜：」を横並びに */
         h2 {
             display: flex;
-            align-items: center; /* テキストと犬の画像を垂直中央揃え */
-            gap: 10px; /* 画像とテキストの間にスペースを追加 */
+            align-items: center;
+            gap: 10px;
         }
         .dog-image {
-            width: 100px; /* 犬画像のサイズ調整 */
+            width: 100px;
             height: auto;
+        }
+        button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        button img {
+            width: 250px;
+            height: auto;
+            display: block;
+        }
+        .score-low {
+            color: red;
+        }
+        .score-high {
+            color: blue;
         }
     </style>
 </head>
 <body>
 <div class="quiz_box">
-    <h1>あなたのスコア: ${score}</h1>
+    <h1>あなたのスコア: <span id="score-value">${score}</span>問/10問</h1> <!-- スコア部分を <span> に変更 -->
     <h2><img class="dog-image" src="images/mokomokoinu.png" alt="犬">が食べた野菜：</h2>
     <div id="vegetable-container">
         <c:forEach var="vegetableImage" items="${eatenVegetables}">
@@ -44,8 +59,24 @@
         </c:forEach>
     </div>
     <form action="quiz" method="get">
-        <button type="submit" name="start" value="true">もう一度プレイする</button>
+        <button type="submit" name="start" value="true">
+            <img src="images/boy.png" alt="もう一度始める">
+        </button>
     </form>
+    <audio id="bgm" src="audio/Kokage_De_Yuttari-1(Slow).mp3" loop autoplay></audio>
+    <script>
+        const score = ${score}; // サーバーからスコアを取得
+        const scoreValue = document.getElementById('score-value');
+        // スコアに応じて文字色を変更
+        if (score <= 5) {
+            scoreValue.classList.add('score-low');
+        } else {
+            scoreValue.classList.add('score-high');
+        }
+    </script>
 </div>
 </body>
 </html>
+
+
+
