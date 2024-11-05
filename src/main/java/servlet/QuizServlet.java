@@ -21,7 +21,7 @@ public class QuizServlet extends HttpServlet {
     private List<String[]> questions = new ArrayList<>();
     private int score = 0;
     private int currentQuestionIndex = 0;
-    private String previousCorrectAnswer = "";
+   
 
     // 果物画像の配列
     private static final String[] fruitImages = {
@@ -118,7 +118,7 @@ public class QuizServlet extends HttpServlet {
             } else {
                 request.setAttribute("sound", "incorrect");
             }
-            previousCorrectAnswer = correctAnswer;
+           
             String explanation = questions.get(currentQuestionIndex)[6];
             request.setAttribute("selectedAnswer", selectedAnswer);
             request.setAttribute("correctAnswer", correctAnswer);

@@ -20,6 +20,7 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	text-align: center;
+	margin-bottom: 20px;
 }
 
 .fruit {
