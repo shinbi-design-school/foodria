@@ -8,6 +8,9 @@
 <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 <!-- ファビコンの追加 -->
 <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
 <style>
 body {
 	background-image: url('images/foodria.png');

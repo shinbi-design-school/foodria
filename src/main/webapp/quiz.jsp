@@ -6,11 +6,13 @@
     <title>クイズ</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <div class="quiz_box">
-
     <!-- ホームボタンの追加 -->
     <div class="home-button-container">
         <form action="start.jsp" method="get">
@@ -75,8 +77,13 @@
 <audio id="correctSound" src="audio/correct.mp3"></audio>
 <audio id="incorrectSound" src="audio/incorrect.mp3"></audio>
 <audio id="hoverSound" src="audio/hover.mp3"></audio> <!-- マウスオーバー時の効果音 -->
+<audio id="bgm" src="audio/Kokage_De_Yuttari-1(Slow).mp3" loop autoplay></audio> <!-- BGM -->
 
 <script>
+    // BGMの音量設定
+    const bgm = document.getElementById('bgm');
+    bgm.volume = 0.4; // 音量は0.0（無音）から1.0（最大音量）まで
+
     let soundType = '${sound}';
     const randomFruitImage = document.getElementById('random-fruit');
     const hoverSound = document.getElementById('hoverSound');
@@ -111,7 +118,7 @@
     // 選択肢ボタンにマウスオーバー時の効果音を追加
     document.querySelectorAll('.choice-button').forEach(button => {
         button.addEventListener('mouseover', () => {
-            hoverSound.currentTime = 0; // 再生位置を先頭に戻す
+            hoverSound.currentTime = 0;
             hoverSound.play();
         });
     });

@@ -2,48 +2,51 @@
 
 /* ページ全体の設定 */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-image: url('images/foodria.png');
-    background-size: cover;
-    margin: 0;
+	font-family: "Kosugi Maru", sans-serif;
+	 font-weight: 400;
+	 font-style: normal;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-image: url('images/foodria.png');
+	background-size: cover;
+	margin: 0;
+
 }
 
 
 /* クイズボックスのデザイン */
 .quiz_box {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    position: relative;
-    padding: 40px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 700px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	position: relative;
+	padding: 40px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	max-width: 600px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 
 /* クイズの質問部分 */
 .question {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-top: 20px;
-    font-size: 24px;
-    color: #333;
-    text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-top: 20px;
+	font-size: 24px;
+	color: #333;
+	text-align: center;
 }
 
 
 /* 選択肢ボックスの設定 */
 .answer_box {
-    margin-top: 10px;
-    width: 100%;
+	margin-top: 10px;
+	width: 100%;
 }
 
 
@@ -63,26 +66,29 @@ body {
 
 
 /* 選択肢ボタンのオレンジ色のスタイル */
-.answer_box button,.nextQuestion button {
-    width: 100%;
-    padding: 8px;
-    font-size: 18px;
-    color: #fff;
-    background-color: rgb(255, 128, 0); /* オレンジ色に設定 */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.answer_box button,
+.nextQuestion button {
+	width: 100%;
+	padding: 8px;
+	font-size: 18px;
+	color: #fff;
+	background-color: rgb(255, 128, 0);
+	/* オレンジ色に設定 */
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
 }
 
 /* ボタンのホバー効果 */
 .answer_box button:hover {
-    background-color: rgb(255, 255, 128); /* ホバー時に明るいオレンジ */
+	background-color: rgb(255, 255, 128);
+	/* ホバー時に明るいオレンジ */
 }
 
 /* 次のボタンの位置調整 */
 #next-btn {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
 /* 画像を配置するコンテナ */
@@ -98,7 +104,7 @@ body {
 	gap: 10px;
 	/* 果物画像間の間隔 */
 	margin-left: 20px;
-	margin-bottom:20px;
+	margin-bottom: 20px;
 	/* 犬と野菜の間隔 */
 }
 
@@ -154,22 +160,22 @@ body {
 
 /* ホームボタンのスタイル */
 .home-button-container {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
 }
 
 .home-button {
-    padding: 8px 16px;
-    font-size: 10px;
-    color: #fff;
-    background-color: #94e239;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+	padding: 8px 16px;
+	font-size: 10px;
+	color: #fff;
+	background-color: #94e239;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
 }
 
 .home-button:hover {
-    opacity: 0.7;
+	opacity: 0.7;
 }
