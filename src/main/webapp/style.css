@@ -15,7 +15,6 @@ body {
 
 }
 
-
 /* クイズボックスのデザイン */
 .quiz_box {
 	background-color: #fff;
@@ -31,7 +30,6 @@ body {
 	align-items: center;
 }
 
-
 /* クイズの質問部分 */
 .question {
 	margin-top: 20px;
@@ -42,28 +40,20 @@ body {
 	text-align: center;
 }
 
-
 /* 選択肢ボックスの設定 */
 .answer_box {
 	margin-top: 10px;
 	width: 100%;
 }
 
-
 /* 選択肢をグリッドで配置 */
 .choices-grid {
-	max-width: 400px;
-	/* 最大幅を400pxに設定 */
+	max-width: 440px;
 	display: grid;
-	/* グリッドレイアウトを使用 */
 	grid-template-columns: repeat(2, 1fr);
-	/* 2列で表示 */
 	gap: 10px;
-	/* 各グリッドの間に10pxの間隔を設定 */
 	margin: 0 auto;
-	/* グリッドを中央揃え */
 }
-
 
 /* 選択肢ボタンのオレンジ色のスタイル */
 .answer_box button,
@@ -73,7 +63,6 @@ body {
 	font-size: 18px;
 	color: #fff;
 	background-color: rgb(255, 128, 0);
-	/* オレンジ色に設定 */
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
@@ -108,12 +97,10 @@ body {
 	/* 犬と野菜の間隔 */
 }
 
-
 .vegetable {
 	width: 50px;
 	height: 50px;
 }
-
 
 /* コンテナ内の画像スタイル */
 .image_container img {
@@ -125,16 +112,12 @@ body {
 	/* 各画像に10pxの余白 */
 }
 
-
-
-
 /* 犬アニメーション */
 #slider {
 	position: relative;
 	width: 100px;
 	height: 100px;
 }
-
 
 .slide {
 	position: absolute;
@@ -143,11 +126,9 @@ body {
 	display: none;
 }
 
-
 .active {
 	display: block;
 }
-
 
 #food {
 	position: absolute;
@@ -156,7 +137,6 @@ body {
 	left: 0;
 	transition: all 0.5s ease;
 }
-
 
 /* ホームボタンのスタイル */
 .home-button-container {
