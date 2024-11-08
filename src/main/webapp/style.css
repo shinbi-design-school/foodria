@@ -40,6 +40,14 @@ body {
 	text-align: center;
 }
 
+/* 行間スペースの調整 */
+       .question {
+           line-height: 1.6; /* 問題文の行間スペース */
+       }
+       .explanation-text {
+           line-height: 1.6; /* 解説文の行間スペース */
+       }
+
 /* 選択肢ボックスの設定 */
 .answer_box {
 	margin-top: 10px;
@@ -88,7 +96,7 @@ body {
 	margin-top: 14px;
 }
 
-#vegetable-container {
+#fruit-container {
 	display: flex;
 	gap: 10px;
 	/* 果物画像間の間隔 */
@@ -97,9 +105,9 @@ body {
 	/* 犬と野菜の間隔 */
 }
 
-.vegetable {
+.fruit {
 	width: 50px;
-	height: 50px;
+	height: 60px;
 }
 
 /* コンテナ内の画像スタイル */

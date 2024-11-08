@@ -35,7 +35,9 @@
                     <p><strong>残念、不正解。</strong></p>
                 </c:otherwise>
             </c:choose>
+            <div class="explanation-text">
             <p>解説: ${explanation}</p>
+            </div>
         </div>
     </c:if>
 
