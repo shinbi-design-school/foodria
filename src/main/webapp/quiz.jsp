@@ -1,14 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
+    <meta charset="UTF-8">
     <title>クイズ</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -25,7 +26,7 @@
 
     <!-- 回答の正誤判定と解説の表示 -->
     <c:if test="${not empty selectedAnswer}">
-        <div style="background-color: #fff887; border: 7px dotted #e66529; border-radius: 1em; padding: 8px;">
+        <div style="background-color: #fff887; border: 7px dotted #e66529; border-radius: 1em; padding: 8px; font-size:16px;">
             <c:choose>
                 <c:when test="${sound == 'correct'}">
                     <p><strong>正解！</strong></p>
@@ -73,23 +74,35 @@
     </div>
 </div>
 
-<!-- 効果音の再生 -->
+<!-- 効果音とBGMの再生 -->
 <audio id="correctSound" src="audio/correct.mp3"></audio>
 <audio id="incorrectSound" src="audio/incorrect.mp3"></audio>
-<audio id="hoverSound" src="audio/hover.mp3"></audio> <!-- マウスオーバー時の効果音 -->
-<audio id="bgm" src="audio/Kokage_De_Yuttari-1(Slow).mp3" loop autoplay></audio> <!-- BGM -->
+<audio id="hoverSound" src="audio/hover.mp3"></audio>
+<audio id="bgm" src="audio/Kokage_De_Yuttari-1(Slow).mp3" loop autoplay></audio>
 
 <script>
+
     // BGMの音量設定
     const bgm = document.getElementById('bgm');
-    bgm.volume = 0.4; // 音量は0.0（無音）から1.0（最大音量）まで
+    bgm.volume = 0.5;
 
+    // 効果音の音量設定
+    const correctSound = document.getElementById('correctSound');
+    correctSound.volume = 0.1;
+
+    const incorrectSound = document.getElementById('incorrectSound');
+    incorrectSound.volume = 0.1;
+
+    const hoverSound = document.getElementById('hoverSound');
+    hoverSound.volume = 0.4;
+
+    // 効果音の再生
     let soundType = '${sound}';
     const randomFruitImage = document.getElementById('random-fruit');
-    const hoverSound = document.getElementById('hoverSound');
-    
+
     if (soundType === 'correct') {
-        document.getElementById('correctSound').play();
+        correctSound.currentTime = 0;
+        correctSound.play();
         randomFruitImage.style.transition = 'all 0.5s ease';
         randomFruitImage.style.position = 'absolute';
         randomFruitImage.style.left = '30px';
@@ -112,7 +125,8 @@
         }
         setInterval(showNextSlide, 250);
     } else if (soundType === 'incorrect') {
-        document.getElementById('incorrectSound').play();
+        incorrectSound.currentTime = 0;
+        incorrectSound.play();
     }
 
     // 選択肢ボタンにマウスオーバー時の効果音を追加
@@ -122,6 +136,8 @@
             hoverSound.play();
         });
     });
+
+    
 </script>
 
 </body>
