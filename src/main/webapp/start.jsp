@@ -10,17 +10,36 @@
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=M+PLUS+Rounded+1c&display=swap"
+	rel="stylesheet">
 <style>
-      .orange-text { display: inline; }
-        .button-container { text-align: center; margin-top: 20px; }
-        .image-button { border: none; background: transparent; cursor: pointer; }
-        .image-button:hover { background: transparent; outline: none; }
-        h1 {
-            text-align: center; color: white;
-            text-shadow: 2px 2px 0 rgba(0, 0, 0, 1), -2px -2px 0 rgba(0, 0, 0, 1), 
-                         2px -2px 0 rgba(0, 0, 0, 1), -2px 2px 0 rgba(0, 0, 0, 1);
-        }
+.orange-text {
+	display: inline;
+}
+
+.button-container {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.image-button {
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}
+
+.image-button:hover {
+	background: transparent;
+	outline: none;
+}
+
+h1 {
+	text-align: center;
+	color: white;
+	text-shadow: 2px 2px 0 rgba(0, 0, 0, 1), -2px -2px 0 rgba(0, 0, 0, 1),
+		2px -2px 0 rgba(0, 0, 0, 1), -2px 2px 0 rgba(0, 0, 0, 1);
+}
 </style>
 </head>
 <body>
@@ -38,7 +57,14 @@
 			<!-- タイトルを追加 -->
 		</form>
 	</div>
+	<audio id="musicplayer" autoplay>
+		<source src="audio/Kokage_De_Yuttari-1(Slow).mp3" />
+	</audio>
 
+	<script>
+		const bgm = document.getElementById('bgm');
+		bgm.volume = 0.4; // 音量は0.0（無音）から1.0（最大音量）まで
+	</script>
 </body>
 </html>
 

@@ -6,10 +6,13 @@
 <meta charset="UTF-8">
 <title>結果</title>
 <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<!-- ファビコンの追加 -->
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=M+PLUS+Rounded+1c&display=swap"
+	rel="stylesheet">
 <style>
 body {
 	background-image: url('images/foodria.png');
@@ -61,19 +64,21 @@ button img {
 .score-high {
 	color: blue;
 }
-
 </style>
 </head>
 <body>
 	<div class="quiz_box">
+		<!-- ホームボタンの追加 -->
 		<div class="home-button-container">
 			<form action="start.jsp" method="get">
+				<!-- ホームページへ移動 -->
 				<button type="submit" class="home-button">ホーム</button>
 			</form>
 		</div>
 		<h1>
 			あなたのスコア: <span id="score-value">${score}</span>問/10問
 		</h1>
+		<!-- スコア部分を <span> に変更 -->
 		<h2>
 			<img class="dog-image" src="images/mokomokoinu.png" alt="犬">が食べた果物：
 		</h2>
@@ -82,32 +87,31 @@ button img {
 				<img class="fruit" src="${fruitImage}" alt="果物">
 			</c:forEach>
 		</div>
-		
+
 		<form action="quiz" method="get">
 			<button type="submit" name="start" value="true">
-				<img src="images/boy.png" alt="もう一度始める" style="width: 80px; height: 80px;">
-			</button>
-		</form>
-
-		<!-- 音量設定 -->
-		<audio id="bgm" src="audio/osanpo.mp3" loop autoplay></audio>
-		<script>
-			// 音量を0.5に設定
-			document.getElementById('bgm').volume = 0.4;
-
-			// スコアに応じて文字色を変更
-			const score = ${score}; // サーバーからスコアを取得
-			const scoreValue = document.getElementById('score-value');
-			if (score <= 5) {
-				scoreValue.classList.add('score-low');
-			} else {
-				scoreValue.classList.add('score-high');
-			}
-		</script>
-	</div>
+				<img src="images/boy.png" alt="もう一度始める"
+					style="width: 80px; height: 80px;>
+        </button>
+    </form>
+    
+        
+        
+			
+    <audio id="bgm" src="audio/Kokage_De_Yuttari-1(Slow).mp3" loop autoplay></audio>
+    <script>
+        const score = ${score}; // サーバーからスコアを取得
+        const scoreValue = document.getElementById('score-value');
+        // スコアに応じて文字色を変更
+        if (score <= 5) {
+            scoreValue.classList.add('score-low');
+        } else {
+            scoreValue.classList.add('score-high');
+        }
+    </script>
+</div>
 </body>
 </html>
-
 
 
 
