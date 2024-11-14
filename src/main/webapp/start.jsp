@@ -38,14 +38,7 @@
 			<!-- タイトルを追加 -->
 		</form>
 	</div>
-	<audio id="musicplayer" autoplay>
-  <source src="audio/Kokage_De_Yuttari-1(Slow).mp3" />
-</audio>
 
-	<script>
-		const bgm = document.getElementById('bgm');
-		bgm.volume = 0.4; // 音量は0.0（無音）から1.0（最大音量）まで
-	</script>
 </body>
 </html>
 
