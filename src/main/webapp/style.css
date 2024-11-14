@@ -64,24 +64,33 @@ body {
 	margin: 0 auto;
 }
 
-/* 選択肢ボタンのオレンジ色のスタイル */
+/* 選択肢ボタンのかわいいスタイル */
 .answer_box button,
 .nextQuestion button {
 	width: 100%;
-	padding: 10px;
+	padding: 12px;
 	font-size: 20px;
 	color: #fff;
-	background-color: rgb(255, 128, 0);
+	background-color:  rgb(255, 128, 0);
 	border: none;
-	border-radius: 5px;
+	border-radius: 25px; /* 丸みを増やして柔らかい印象に */
 	cursor: pointer;
-	transition: background-color 0.3s;
+	transition: background-color 0.3s, transform 0.2s;
+	box-shadow: 0 4px 8px rgba(255, 173, 173, 0.4); /* ふんわりしたシャドウ */
 }
 
 /* ボタンのホバー効果 */
 .answer_box button:hover {
-	background-color: rgb(255, 255, 128);
-	/* ホバー時に明るいオレンジ */
+	background-color: #ffe6c1; /* ホバー時に明るいオレンジ */
+	color: #ff8c42; /* 文字色を変えてアクセント */
+	transform: scale(1.05); /* 少し拡大してふんわりとした印象に */
+	box-shadow: 0 6px 12px rgba(255, 173, 173, 0.6); /* ホバー時のシャドウを少し強調 */
+}
+
+/* ボタンのクリック時のアニメーション */
+.answer_box button:active {
+	transform: scale(0.95); /* 押した時に少し小さくして、ボタンを押す感覚を演出 */
+	box-shadow: 0 3px 6px rgba(255, 173, 173, 0.3); /* シャドウを弱める */
 }
 
 /* 次のボタンの位置調整 */
