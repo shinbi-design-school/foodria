@@ -91,14 +91,11 @@ button img {
 		<form action="quiz" method="get">
 			<button type="submit" name="start" value="true">
 				<img src="images/boy.png" alt="もう一度始める"
-					style="width: 80px; height: 80px;>
-        </button>
-    </form>
-    
+					style="width: 80px; height: 80px;">
+			</button>
+		</form>
         
-        
-			
-    <audio id="bgm" src="audio/Kokage_De_Yuttari-1(Slow).mp3" loop autoplay></audio>
+    <audio id="bgm" src="audio/osanpo.mp3" loop autoplay></audio> 
     <script>
         const score = ${score}; // サーバーからスコアを取得
         const scoreValue = document.getElementById('score-value');
@@ -108,10 +105,15 @@ button img {
         } else {
             scoreValue.classList.add('score-high');
         }
+
+        // BGMの音量を0.4に設定
+        const bgm = document.getElementById('bgm');
+        bgm.volume = 0.4;  // 音量を0.4に設定
     </script>
 </div>
 </body>
 </html>
+
 
 
 
